@@ -1,7 +1,14 @@
+import math
+
 class DocumentDistance(object):
 	def __init__(self):
 		self.D1 = ""
 		self.D2 = ""
+		self.dotProduct = 0
+		self.magnitude = 0
+		self.normalizedDotProduct = 0
+		self.d1WordFrequencies = {}
+		self.d2WordFrequencies = {}
 
 	#names of the files themselves
 	D1 = ""
@@ -12,6 +19,8 @@ class DocumentDistance(object):
 	d2WordFrequencies = {}
 
 	dotProduct = 0
+	magnitude = 0
+	normalizedDotProduct = 0
 
 	def inputDocNames(self):
 		self.D1 = input('Please enter the name of the first Document: ')
@@ -49,7 +58,13 @@ class DocumentDistance(object):
 		for element in self.d1WordFrequencies:
 			if element in self.d2WordFrequencies:
 				self.dotProduct += self.d1WordFrequencies[element]*self.d2WordFrequencies[element]
-			
+				self.computeMagnitude(self.d1WordFrequencies[element]*self.d2WordFrequencies[element])
+		
+		self.normalizedDotProduct = self.dotProduct/math.sqrt(self.magnitude)
+
+	def computeMagnitude(self, magnitudeElement):
+		self.magnitude += magnitudeElement*magnitudeElement
+
 
 
 
@@ -60,5 +75,16 @@ if __name__ == '__main__':
 	D.inputDocNames()
 	D.splitDocuments(D.D1,D.D2)
 	D.computeDotProdcut(D.D1, D.D2)
-	print D.dotProduct
+	print "This is the dotProdcut %i " %D.dotProduct
+	print "This is the normalizedDotProduct %i" %D.normalizedDotProduct
+
+
+	D2 = DocumentDistance()
+	print "This is the dotProdcut(D2) %i " %D2.dotProduct
+	print "This is the normalizedDotProduct(D2) %i" %D2.normalizedDotProduct
+	D2.inputDocNames()
+	D2.splitDocuments(D2.D1,D2.D2)
+	D2.computeDotProdcut(D2.D1, D2.D2)
+	print "This is the dotProdcut(D2) %i " %D2.dotProduct
+	print "This is the normalizedDotProduct(D2) %i" %D2.normalizedDotProduct
 	
