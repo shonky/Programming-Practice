@@ -17,11 +17,13 @@ int countSteps(int nSteps)
         if(nSteps == 2){
                 nPoss += 2;
         }
-        if(nSteps == 3){
+        if(nSteps == 3 || nPoss == 0){
                 nPoss += 3;
         }
 
-        nPoss += countSteps(nSteps-3);
+        cout<< "nPoss" << nPoss << endl;
+        cout << "nSteps" << nSteps <<endl;
+        countSteps(nSteps-3);
 
         return nPoss;
 }
