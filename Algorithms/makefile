@@ -1,5 +1,5 @@
-exe : vector.o
-	gcc -o exe vector.o
+exe : stack.o
+	gcc -o exe stack.o
 
-vector.o: vector.c
-	gcc -c vector.c
+stack.o: stack.c
+	gcc -c stack.c

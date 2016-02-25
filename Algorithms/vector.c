@@ -72,7 +72,7 @@ int main(int argc, char ** argv)
 	insert(&v1 , 6);
 	insert(&v1, 7);
 	insert(&v1, 8);
-	//delete(&v1, 2);
+	delete(&v1, 2);
 	printElements(&v1);
 }
 
