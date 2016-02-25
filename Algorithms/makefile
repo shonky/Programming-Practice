@@ -1,5 +1,5 @@
-exe : letterChange.o
-	gcc -o exe letterChange.o
+exe : vector.o
+	gcc -o exe vector.o
 
-letterChange.o: letterChange.c
-	gcc -c letterChange.c
+vector.o: vector.c
+	gcc -c vector.c
